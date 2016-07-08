@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2404D772-087D-48FE-BD84-A40436C3F11D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Guantanamo_GUI</RootNamespace>
+    <AssemblyName>Guantanamo_GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\IconGCC.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\GlobalVehicleCommands.cs" />
+    <Compile Include="UltilityModules\Calibration_Accelerometer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_Accelerometer.Designer.cs">
+      <DependentUpon>Calibration_Accelerometer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_Gyroscope.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_Gyroscope.Designer.cs">
+      <DependentUpon>Calibration_Gyroscope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_ImageProcessing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_ImageProcessing.Designer.cs">
+      <DependentUpon>Calibration_ImageProcessing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_Magnetometer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_Magnetometer.Designer.cs">
+      <DependentUpon>Calibration_Magnetometer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_DMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\Calibration_DMP.Designer.cs">
+      <DependentUpon>Calibration_DMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_ImageArea.cs" />
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_ImageCentroid.cs" />
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_MagNorm.cs" />
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_VehicleControl.cs" />
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_WPHeadingSteering.cs" />
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_Base.cs" />
+    <Compile Include="UltilityModules\DataVisualizer\Visualizer_MagGyroVehicle.cs" />
+    <Compile Include="UltilityModules\DataVisualizer_Utility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\DataVisualizer_Utility.Designer.cs">
+      <DependentUpon>DataVisualizer_Utility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\DMP_GainControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\DMP_GainControl.Designer.cs">
+      <DependentUpon>DMP_GainControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\ImageAvoid_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\ImageAvoid_Control.Designer.cs">
+      <DependentUpon>ImageAvoid_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\ImageGoTo_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\ImageGoTo_Control.Designer.cs">
+      <DependentUpon>ImageGoTo_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\Waypoint_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\Waypoint_Control.Designer.cs">
+      <DependentUpon>Waypoint_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\ImageFollow_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\DMP_Gains\ImageFollow_Control.Designer.cs">
+      <DependentUpon>ImageFollow_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\LogUtility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\LogUtility.Designer.cs">
+      <DependentUpon>LogUtility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\StateEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\StateEditor.Designer.cs">
+      <DependentUpon>StateEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\StateHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\StateHistory.Designer.cs">
+      <DependentUpon>StateHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\GlobalEnumerables.cs" />
+    <Compile Include="PresenterManager.cs" />
+    <Compile Include="SensorModules\BaseSensorModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\BaseSensorModule.Designer.cs">
+      <DependentUpon>BaseSensorModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\CommonCommands.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\CommonCommands.Designer.cs">
+      <DependentUpon>CommonCommands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\NMEAOutput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\NMEAOutput.Designer.cs">
+      <DependentUpon>NMEAOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\PMTKSend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\PMTKSend.Designer.cs">
+      <DependentUpon>PMTKSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\SteerTowardsHeading.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\SteerTowardsHeading.Designer.cs">
+      <DependentUpon>SteerTowardsHeading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\Gyroscope_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\Gyroscope_Module.Designer.cs">
+      <DependentUpon>Gyroscope_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\ImageProcessing_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\ImageProcessing_Module.Designer.cs">
+      <DependentUpon>ImageProcessing_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\Navigation_Utility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\Navigation_Utility.Designer.cs">
+      <DependentUpon>Navigation_Utility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Write_CameraSettings.cs" />
+    <Compile Include="VehicleSensors\DigitalMotion_Sensor.cs" />
+    <Compile Include="VehicleSensors\ImageProcessing_Sensor.cs" />
+    <Compile Include="VehicleSensors\SpecialPackets.cs" />
+    <Compile Include="Utilities\LoadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\LoadingScreen.Designer.cs">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\LoadingScreen_Handler.cs" />
+    <Compile Include="UltilityModules\LogExtracter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\LogExtracter.Designer.cs">
+      <DependentUpon>LogExtracter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\Probe_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\Probe_Module.Designer.cs">
+      <DependentUpon>Probe_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\Ultrasonic_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\Ultrasonic_Module.Designer.cs">
+      <DependentUpon>Ultrasonic_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\SerialHealth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\SerialHealth.Designer.cs">
+      <DependentUpon>SerialHealth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltilityModules\UtilityBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\UtilityBase.Designer.cs">
+      <DependentUpon>UtilityBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleSensors\Accelerometer_Sensor.cs" />
+    <Compile Include="SensorModules\Accelerometer_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\Accelerometer_Module.Designer.cs">
+      <DependentUpon>Accelerometer_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CMath.cs" />
+    <Compile Include="UltilityModules\CommandSender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\CommandSender.Designer.cs">
+      <DependentUpon>CommandSender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\BaseCommand.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\BaseCommand.Designer.cs">
+      <DependentUpon>BaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\ImageProcessing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\ImageProcessing.Designer.cs">
+      <DependentUpon>ImageProcessing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\SendWaypoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\SendWaypoint.Designer.cs">
+      <DependentUpon>SendWaypoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\SetSteering.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\SetSteering.Designer.cs">
+      <DependentUpon>SetSteering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleSensors\Diagnostics_Sensor.cs" />
+    <Compile Include="MDI_Parent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Parent.Designer.cs">
+      <DependentUpon>MDI_Parent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\GPS_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\GPS_Module.Designer.cs">
+      <DependentUpon>GPS_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleSensors\SensorEnumerables.cs" />
+    <Compile Include="VehicleSensors\GPS_Sensor.cs" />
+    <Compile Include="SensorModules\Magnetometer_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\Magnetometer_Module.Designer.cs">
+      <DependentUpon>Magnetometer_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\Navigation_Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\Navigation_Module.Designer.cs">
+      <DependentUpon>Navigation_Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\LogHandler.cs" />
+    <Compile Include="VehicleSensors\Gyroscope_Sensor.cs" />
+    <Compile Include="VehicleSensors\Magnetometer_Sensor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\SerialCOM.cs" />
+    <Compile Include="UltilityModules\SerialConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltilityModules\SerialConnect.Designer.cs">
+      <DependentUpon>SerialConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\SerialMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\SerialMonitor.Designer.cs">
+      <DependentUpon>SerialMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\SplashScreen_Handler.cs" />
+    <Compile Include="VehicleSensors\Probe_Sensor.cs" />
+    <Compile Include="VehicleSensors\Sensor.cs" />
+    <Compile Include="VehicleSensors\Ultrasonic_Sensor.cs" />
+    <Compile Include="VehicleSensors\VehicleController.cs" />
+    <Compile Include="SensorModules\VehicleDiagnostics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\VehicleDiagnostics.Designer.cs">
+      <DependentUpon>VehicleDiagnostics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorModules\VehicleState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorModules\VehicleState.Designer.cs">
+      <DependentUpon>VehicleState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleSensors\VehicleState_Sensor.cs" />
+    <Compile Include="VehicleSystems.cs" />
+    <Compile Include="Utilities\WorkspaceFormatter.cs" />
+    <EmbeddedResource Include="SensorModules\Accelerometer_Module.resx">
+      <DependentUpon>Accelerometer_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\Calibration_Accelerometer.resx">
+      <DependentUpon>Calibration_Accelerometer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\ImageProcessing_Module.resx">
+      <DependentUpon>ImageProcessing_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\Calibration_Gyroscope.resx">
+      <DependentUpon>Calibration_Gyroscope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\Calibration_ImageProcessing.resx">
+      <DependentUpon>Calibration_ImageProcessing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\Calibration_Magnetometer.resx">
+      <DependentUpon>Calibration_Magnetometer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\CommandSender.resx">
+      <DependentUpon>CommandSender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\BaseCommand.resx">
+      <DependentUpon>BaseCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\CommonCommands.resx">
+      <DependentUpon>CommonCommands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\ImageProcessing.resx">
+      <DependentUpon>ImageProcessing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\PMTKSend.resx">
+      <DependentUpon>PMTKSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\SendWaypoint.resx">
+      <DependentUpon>SendWaypoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\SetSteering.resx">
+      <DependentUpon>SetSteering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commands\SteerTowardsHeading.resx">
+      <DependentUpon>SteerTowardsHeading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\Gyroscope_Module.resx">
+      <DependentUpon>Gyroscope_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\Calibration_DMP.resx">
+      <DependentUpon>Calibration_DMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\DataVisualizer_Utility.resx">
+      <DependentUpon>DataVisualizer_Utility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\DMP_Gains\DMP_GainControl.resx">
+      <DependentUpon>DMP_GainControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\DMP_Gains\ImageAvoid_Control.resx">
+      <DependentUpon>ImageAvoid_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\DMP_Gains\ImageGoTo_Control.resx">
+      <DependentUpon>ImageGoTo_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\DMP_Gains\Waypoint_Control.resx">
+      <DependentUpon>Waypoint_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\DMP_Gains\ImageFollow_Control.resx">
+      <DependentUpon>ImageFollow_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\LogUtility.resx">
+      <DependentUpon>LogUtility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\StateEditor.resx">
+      <DependentUpon>StateEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\StateHistory.resx">
+      <DependentUpon>StateHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\LoadingScreen.resx">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\LogExtracter.resx">
+      <DependentUpon>LogExtracter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Parent.resx">
+      <DependentUpon>MDI_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\GPS_Module.resx">
+      <DependentUpon>GPS_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\Magnetometer_Module.resx">
+      <DependentUpon>Magnetometer_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\Navigation_Module.resx">
+      <DependentUpon>Navigation_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\Probe_Module.resx">
+      <DependentUpon>Probe_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UltilityModules\Navigation_Utility.resx">
+      <DependentUpon>Navigation_Utility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\SerialConnect.resx">
+      <DependentUpon>SerialConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\SerialMonitor.resx">
+      <DependentUpon>SerialMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\Ultrasonic_Module.resx">
+      <DependentUpon>Ultrasonic_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\VehicleDiagnostics.resx">
+      <DependentUpon>VehicleDiagnostics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorModules\VehicleState.resx">
+      <DependentUpon>VehicleState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltilityModules\SerialHealth.resx">
+      <DependentUpon>SerialHealth.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Compass.png" />
+    <Content Include="Resources\IconGCC.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
